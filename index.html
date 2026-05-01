@@ -21,41 +21,24 @@ Select ONE Additional Feature to Add
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>Lily's Quiz!</h1>
+Logan Charles Kay QUIZ</h1>
     <hr />
-    <!-- Song Question -->
-    <form id="song-form">
+    <!-- Movie Question -->
+    <form id="movie-form">
       <label>
-        🎥 What is my favorite song?
-        <select id="song-answer">
-          <option value="song1">Cassio (Jungle)</option>
-          <option value="song2">Now or Never (Kendrick Lamar)</option>
-          <option value="song3">Human (The Killers)</option>
-          <option value="song4">Walk Like an Egyptian (The Bangles)</option>
+        🎥 What is my favorite movie?
+        <select id="movie-answer">
+          <option value="movie1">Prince of Egypt</option>
+          <option value="movie2">LaLaLand</option>
+          <option value="movie3">The Polar Express</option>
+          <option value="movie4">prolly smn else</option>
         </select>
       </label>
-      <button type="submit">Check Song Answer</button>
+      <button type="submit">Check Movie Answer</button>
     </form>
-    <div id="song-result">
-      <p id="song-text"></p>
-    </div>
-    <hr />
-
-     <!-- Game Question -->
-    <form id="game-form">
-      <label>
-        🎥 What is my favorite game?
-        <select id="game-answer">
-          <option value="game1">Animal Crossings</option>
-          <option value="game2">NYT Connections</option>
-          <option value="game3">Slither.io</option>
-          <option value="game4">Among Us</option>
-        </select>
-      </label>
-      <button type="submit">Check Game Answer</button>
-    </form>
-    <div id="game-result">
-      <p id="game-text"></p>
+    <div id="movie-result">
+      <p id="movie-text"></p>
+      <img class="movie-pic">
     </div>
     <hr />
     <!-- Book Question -->
@@ -63,10 +46,10 @@ Select ONE Additional Feature to Add
       <label>
         📖 What is my favorite book?
         <select id="book-answer">
-          <option value="book1">Walden</option>
-          <option value="book2">Being and Nothingness</option>
-          <option value="book3">Tomorrow and Tomorrow and Tomorrow</option>
-          <option value="book4">Of Mice and Men</option>
+          <option value="book1">Night</option>
+          <option value="book2">The Giver</option>
+          <option value="book3">The Great Gatsby</option>
+          <option value="book4">Never Read a Book</option>
         </select>
       </label>
       <button type="submit">Check Book Answer</button>
@@ -77,18 +60,19 @@ Select ONE Additional Feature to Add
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
       
-      //========================Song Question jQuery Code
-      $("#song-form").on("submit", function (event) {
+      //========================Movie Question jQuery Code
+      $("#movie-form").on("submit", function (event) {
         event.preventDefault();
 
-        var $answer = $("#song-answer");
+        var $answer = $("#movie-answer");
         var answer = $answer.val();
 
-        if (answer === "song3") {
-          $("#song-text").text("YESSSS!");
+        if (answer === "movie1") {
+          $("#movie-text").text("HAI MUY KAWAII ANSWER DESU!");
+       $(".movie-pic").hide().attr("src","data:image/jpeg;base64,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").fadeIn(1000);
         } 
         else {
-          $("#song-text").text("So close!");
+          $("#movie-text").text("Try Again!");
         }
       });
 
@@ -100,26 +84,10 @@ Select ONE Additional Feature to Add
         var answer = $answer.val();
 
         if (answer === "book1") {
-          $("#book-text").text("YESSSS!");
+          $("#book-text").text("HAI!");
         } 
         else {
           $("#book-text").text("Try Again!");
-        }
-      });
-
-      
-      //=======================Game Question jQuery Code
-      $("#game-form").on("submit", function (event) {
-        event.preventDefault();
-
-        var $answer = $("#game-answer");
-        var answer = $answer.val();
-
-        if (answer === "game4") {
-          $("#game-text").text("YESSSS!");
-        } 
-        else {
-          $("#game-text").text("Try Again!");
         }
       });
       
